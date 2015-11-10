@@ -105,16 +105,17 @@ module ActiveRecord
       # SQL_MASTER_MATCHERS           = [/\A\s*select.+for update\Z/i, /select.+lock in share mode\Z/i].map(&:freeze).freeze
       # SQL_SKIP_STICKINESS_MATCHERS  = [/\A\s*show\s([\w]+\s)?(field|table|database|schema|view|index)(es|s)?/i, /\A\s*(set|describe|explain|pragma)\s/i].map(&:freeze).freeze
       
-      SQL_MASTER_MATCHERS           = [
-        /\A\s*select.+for update\Z/i, 
-        /select.+lock in share mode\Z/i,
+
+      SQL_MASTER_MATCHERS           = [/\A\s*select.+for update\Z/i, /select.+lock in share mode\Z/i].map(&:freeze).freeze
+
+      SQL_SLAVE_MATCHERS            = [
+        /\A\s*select\s/i,
         /\A\s*show\s([\w]+\s)?(field|table|database|schema|view|index)(es|s)?/i, 
         /\A\s*(set|describe|explain|pragma)\s/i
       ].map(&:freeze).freeze
 
       SQL_SKIP_STICKINESS_MATCHERS  = [].map(&:freeze).freeze
 
-      SQL_SLAVE_MATCHERS            = [/\A\s*select\s/i].map(&:freeze).freeze
       SQL_ALL_MATCHERS              = [/\A\s*set\s/i].map(&:freeze).freeze
 
 
