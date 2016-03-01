@@ -116,7 +116,7 @@ module ActiveRecord
 
       SQL_SLAVE_MATCHERS            = [
         /\A\s*select\s/i,
-        /\A\s*show\s([\w]+\s)?(field|table|database|schema|view|index)(es|s)?/i, 
+        /\A\s*show\s([\w]+\s)?(field|table|database|schema|view|index|variable)(es|s)?/i,
         /\A\s*(set|describe|explain|pragma)\s/i
       ].map(&:freeze).freeze
 
